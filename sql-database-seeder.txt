@@ -1,0 +1,12 @@
+CREATE DATABASE blog;
+CREATE TABLE posts (
+id int AUTO_INCREMENT,
+title varchar(60) NOT NULL,
+body longtext NOT NULL,
+autor varchar(60) NOT NULL,
+created_at timestamp NOT NULL,
+PRIMARY KEY (id)
+);
+INSERT INTO posts (title, body, autor) VALUES ("Ima li koga", "Ja dosao ovde ujutru i sve prazno", "Djole");
+INSERT INTO posts (title, body, autor) VALUES ("Zurka kod mene", "Veceras, dolaze tamvburasi", "Steva");
+INSERT INTO posts (title, body, autor) VALUES ("Zasto je mesec bolji od sunca", "Citala sam juce u BravoGirl da energija mesesa...", "Anica");
