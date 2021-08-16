@@ -10,3 +10,17 @@ PRIMARY KEY (id)
 INSERT INTO posts (title, body, autor) VALUES ("Ima li koga", "Ja dosao ovde ujutru i sve prazno", "Djole");
 INSERT INTO posts (title, body, autor) VALUES ("Zurka kod mene", "Veceras, dolaze tamvburasi", "Steva");
 INSERT INTO posts (title, body, autor) VALUES ("Zasto je mesec bolji od sunca", "Citala sam juce u BravoGirl da energija mesesa...", "Anica");
+CREATE TABLE comments (
+id int AUTO_INCREMENT,
+autor varchar(60) NOT NULL,
+text longtext NOT NULL,
+post_id int NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (post_id) REFERENCES posts(id)
+);
+INSERT INTO comments (autor, text, post_id) VALUES ("Mika", "blablablalbalab", 1);
+INSERT INTO comments (autor, text, post_id) VALUES ("Zika", "bladqqqqqqqblablalbalab", 1);
+INSERT INTO comments (autor, text, post_id) VALUES ("Pika", "AWAWAbladqqqqqqqblablalbalab", 2);
+INSERT INTO comments (autor, text, post_id) VALUES ("Aika", "ZZZZZAWAWAbladqqqqqqqblablalbalab", 2);
+INSERT INTO comments (autor, text, post_id) VALUES ("Oika", "OOOOOAWAWAbladqqqqqqqblablalbalab", 3);
+INSERT INTO comments (autor, text, post_id) VALUES ("Wika", "CCCCCAWAWAbladqqqqqqqblablalbalab", 3);
