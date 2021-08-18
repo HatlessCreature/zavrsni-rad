@@ -5,7 +5,7 @@
 
     $comments = getAll($connection, $sql)
 ?>
-
+<button class = "btn btn-default">Hide Comments</button>
 <div class="comments">
     <h3>Comments</h3>
     <ul>
@@ -22,3 +22,19 @@
     ?>
     </ul>
 </div>
+
+<script>
+    const commButton = document.getElementsByClassName("btn btn-default")[0];
+    const commentsDiv = document.getElementsByClassName("comments")[0];
+    commButton.addEventListener("click", function(){
+        if (commentsDiv.style.display === "none") {
+            commentsDiv.style.display = "block";
+            commButton.innerHTML = "Hide Comments";
+        } 
+        else {
+            commentsDiv.style.display = "none";
+            commButton.innerHTML = "Show Comments";
+
+        }
+            })
+</script>
