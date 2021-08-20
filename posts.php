@@ -29,7 +29,7 @@ include "header.php";
 <?php
     $sql = "SELECT id, title, body, autor, created_at
         FROM posts 
-        ORDER BY created_at DESC LIMIT 3";
+        ORDER BY created_at DESC LIMIT 5";
     $posts = getAll($connection,$sql);
 
 ?>
