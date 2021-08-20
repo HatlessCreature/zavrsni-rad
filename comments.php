@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $id = $_POST['delete_comment'];
     $post_id = $_POST['post_id'];
 
-    $sql = "DELETE FROM comments WHERE id = '$id'";
+    $sql = "UPDATE comments SET deleted = 1 WHERE id = '$id'";
     $statement = $connection->prepare($sql);
     $statement->execute();
     
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     $sql = "SELECT *
     FROM comments 
-    WHERE post_id = {$_GET['post_id']}";
+    WHERE post_id = {$_GET['post_id']} AND deleted = 0";
 
     $comments = getAll($connection, $sql);
 ?>
@@ -36,7 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
 
         <?php
-        if ($_GET['error']){
+        
+        if (isset($_GET['error'])){
             echo (
                 "<div class='alert-danger'>
             Please fill out the whole form.
