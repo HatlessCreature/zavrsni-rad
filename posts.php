@@ -27,8 +27,20 @@ include "header.php";
 ?>
 
 <?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    
+        $post_id = $_POST['post_id'];
+    
+        $sql = "UPDATE posts SET deleted = 1 WHERE id = '$post_id'";
+        $statement = $connection->prepare($sql);
+        $statement->execute();
+        
+    
+    }
+
     $sql = "SELECT id, title, body, autor, created_at
         FROM posts 
+        WHERE deleted = 0
         ORDER BY created_at DESC LIMIT 5";
     $posts = getAll($connection,$sql);
 

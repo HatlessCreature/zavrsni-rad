@@ -27,6 +27,7 @@ include "header.php";
 ?>
 
 <?php
+    
     if (isset($_GET['post_id'])) {
         $sql = "SELECT id, title, body, autor, created_at
             FROM posts 
@@ -52,6 +53,12 @@ include "header.php";
 
                 <p><?php echo($post['body']) ?></p>
             </div><!-- /.blog-post -->
+            <form action="posts.php" method="post">
+                <input type="hidden" name="post_id" value="<?php echo($_GET['post_id']) ?>">
+                <input type="submit" value="Delete this post" class = "btn btn-primary"
+                 onclick="return confirm('Are you sure you want to delete this post?')">
+            </form>
+            <br>
 
             <?php
             include "comments.php";
@@ -83,5 +90,6 @@ include "header.php";
 <?php
 include "footer.php";
 ?>
+
 </body>
 </html>

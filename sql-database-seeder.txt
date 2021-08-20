@@ -25,3 +25,5 @@ INSERT INTO comments (autor, text, post_id) VALUES ("Pika", "AWAWAbladqqqqqqqbla
 INSERT INTO comments (autor, text, post_id) VALUES ("Aika", "ZZZZZAWAWAbladqqqqqqqblablalbalab", 2);
 INSERT INTO comments (autor, text, post_id) VALUES ("Oika", "OOOOOAWAWAbladqqqqqqqblablalbalab", 3);
 INSERT INTO comments (autor, text, post_id) VALUES ("Wika", "CCCCCAWAWAbladqqqqqqqblablalbalab", 3);
+ALTER TABLE comments ADD deleted BOOL NOT NULL DEFAULT false;
+ALTER TABLE posts ADD deleted BOOL NOT NULL DEFAULT false;
