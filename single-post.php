@@ -29,9 +29,10 @@ include "header.php";
 <?php
     
     if (isset($_GET['post_id'])) {
-        $sql = "SELECT id, title, body, autor, created_at
-            FROM posts 
-            WHERE id = {$_GET['post_id']}";
+        $sql = "SELECT p.*, u.First_Name,  u.Last_Name
+            FROM posts AS p 
+            INNER JOIN users AS u ON p.autor = u.id 
+            WHERE p.id = {$_GET['post_id']}";
         $post = getSingle($connection,$sql);
     
     
@@ -49,7 +50,7 @@ include "header.php";
                 <h2 class="blog-post-title">
                     <a href = "single-post.php?post_id=<?php echo($post['id']) ?>" class = "post-title"><?php echo($post['title']) ?></a>
                 </h2>
-                <p class="blog-post-meta"><?php echo($post['created_at']) ?> by <a href="#"><?php echo($post['autor']) ?></a></p>
+                <p class="blog-post-meta"><?php echo($post['created_at']) ?> by <a href="#"><?php echo($post['First_Name']) ?> <?php echo($post['Last_Name']) ?></a></p>
 
                 <p><?php echo($post['body']) ?></p>
             </div><!-- /.blog-post -->

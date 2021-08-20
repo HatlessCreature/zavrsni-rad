@@ -45,9 +45,15 @@ include "header.php";
             </div>
 
             <div class="label-wrapper">
-                <label>Your Name</label>
+                <label>First Name</label>
                 <br>
-                <input type="text" name="autor">
+                <input type="text" name="First_Name">
+            </div>
+            
+            <div class="label-wrapper">
+                <label>Last Name</label>
+                <br>
+                <input type="text" name="Last_Name">
             </div>
             <br>
 

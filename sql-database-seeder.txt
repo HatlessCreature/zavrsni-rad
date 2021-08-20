@@ -27,3 +27,27 @@ INSERT INTO comments (autor, text, post_id) VALUES ("Oika", "OOOOOAWAWAbladqqqqq
 INSERT INTO comments (autor, text, post_id) VALUES ("Wika", "CCCCCAWAWAbladqqqqqqqblablalbalab", 3);
 ALTER TABLE comments ADD deleted BOOL NOT NULL DEFAULT false;
 ALTER TABLE posts ADD deleted BOOL NOT NULL DEFAULT false;
+CREATE TABLE users (
+id int AUTO_INCREMENT, 
+First_Name varchar(60) NOT NULL,
+Last_Name varchar(60) NOT NULL, 
+PRIMARY KEY (id)
+);
+DROP TABLE posts;
+CREATE TABLE posts (
+id int AUTO_INCREMENT,
+title varchar(60) NOT NULL,
+body longtext NOT NULL,
+autor INT NOT NULL UNIQUE,
+created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY (id),
+FOREIGN KEY (autor) REFERENCES users(id)
+);
+INSERT INTO users (First_Name, Last_Name) VALUES ("Pera", "Djordjevic");
+INSERT INTO users (First_Name, Last_Name) VALUES ("Mira", "Ognjanovic");
+INSERT INTO users (First_Name, Last_Name) VALUES ("Djole", "Petrovic");
+ALTER TABLE posts ADD deleted BOOL NOT NULL DEFAULT false;
+INSERT INTO posts (title, body, autor) VALUES ("Ima li koga", "Ja dosao ovde ujutru i sve prazno", 1);
+INSERT INTO posts (title, body, autor) VALUES ("Zurka kod mene", "Veceras, dolaze tamburasi", 3);
+INSERT INTO posts (title, body, autor) VALUES ("Zasto je mesec bolji od sunca", "Citala sam juce u BravoGirl da energija mesesa...", 2);
+
